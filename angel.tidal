@@ -1,6 +1,6 @@
 -- =============================================
 -- MASSIVE ATTACK "ANGEL" - TidalCycles Recreation
--- Trip-hop | ~80 BPM | Heavy sub-bass
+-- C Phrygian | 107 BPM (half-time feel) | Heavy sub-bass
 -- =============================================
 --
 -- HOW TO USE:
@@ -10,103 +10,118 @@
 -- 4. Copy/paste each line into the tidal> REPL
 -- 5. Use 'hush' to silence everything
 --
--- NOTE: Each pattern is on a single line for easy REPL pasting.
--- If using an editor plugin (vim-tidal, vscode-tidalcycles),
--- you can use the multiline versions in angel-multiline.tidal instead.
---
 -- =============================================
 
--- Set tempo: 80 BPM (evaluate this first!)
-setcps (80/60/4)
+-- Set tempo: 107 BPM half-time (evaluate this first!)
+setcps (107/60/4)
 
 -- =============================================
--- SECTION 1: INTRO
--- Sparse, atmospheric, bass drone.
--- Just the sub-bass rumble and a distant pad.
+-- SECTION 1: INTRO (~0:00 - ~1:00)
+-- Dark, cavernous atmosphere. Sub-bass drone on C.
+-- Long reverb tails. Building tension from nothing.
 -- =============================================
 
-d1 $ slow 4 $ s "supersaw" # note "a1" # sustain 8 # cutoff 200 # resonance 0.3 # room 0.8 # size 0.9 # gain 1.2 # pan 0.5
+-- Sub-bass drone on C - deep and sustained
+d1 $ slow 4 $ note "c2" # s "jvbass" # sustain 4 # cutoff 200 # resonance 0.2 # room 0.8 # size 0.9 # gain 1.3 # lpf 250
 
-d4 $ slow 8 $ s "pad:3" # cutoff 800 # room 0.95 # size 0.95 # delay 0.6 # delaytime (1/3) # delayfeedback 0.6 # gain 0.7
-
--- =============================================
--- SECTION 2: VERSE BUILDUP
--- Drums enter. The bassline establishes its pattern.
--- Descending A minor pentatonic movement.
--- =============================================
-
--- Bassline - descending pattern
-d1 $ slow 2 $ note "a1 [~ a1] e1 [~ g1]" # s "supersaw" # sustain 0.4 # cutoff 400 # resonance 0.2 # room 0.4 # size 0.6 # gain 1.3 # lpf 300
-
--- Breakbeat drums
-d2 $ stack [s "bd(3,8)" # gain 1.2 # cutoff 2000, slow 2 $ s "~ sd ~ [sd ~ sd]" # gain 1.0 # room 0.3 # size 0.4, s "~ [~ hh] hh [hh ~ hh ~]" # gain 0.8 # cutoff 6000 # pan (range 0.3 0.7 rand)]
-
--- Atmosphere continues but more present
-d4 $ slow 4 $ s "pad:3 pad:5" # cutoff 1200 # room 0.9 # size 0.9 # gain 0.6
+-- Dark atmospheric texture - filtered noise wash
+d4 $ slow 8 $ s "pad:3" # cutoff 600 # room 0.98 # size 0.98 # delay 0.7 # delaytime (1/3) # delayfeedback 0.7 # gain 0.5
 
 -- =============================================
--- SECTION 3: MAIN
--- Full intensity. Heavy bass with filter sweeps,
--- complex drums, atmospheric layers, string stabs.
+-- SECTION 2: BASS ENTERS (~1:00 - ~2:00)
+-- The iconic two-note bass pattern: C and Db
+-- (C Phrygian - the b2 gives it that dark, exotic feel)
+-- Drums begin - slowed breakbeat, very wet snare
 -- =============================================
 
--- Bass - heavier, filter movement
-d1 $ every 4 (jux rev) $ slow 2 $ note "a1 [a1 a1] e1 [g1 ~ e1 ~]" # s "supersaw" # sustain 0.3 # cutoff (range 300 800 $ slow 8 sine) # resonance 0.25 # room 0.3 # size 0.5 # gain 1.4 # lpf 400
+-- Bassline - C to Db, rhythmic with VCF-style filter movement
+d1 $ note "c2 c2 c2 c2 c2 c2 c2 db2" # s "jvbass" # sustain 0.3 # cutoff (range 200 500 $ slow 4 sine) # resonance 0.3 # room 0.4 # size 0.5 # gain 1.4 # lpf 350
 
--- Drums - more complex, layered
-d2 $ stack [s "bd [~ bd] ~ bd(3,8,1)" # gain 1.3 # cutoff 3000, s "~ sd ~ [sd ~ sd:2]" # gain 1.1 # room 0.3 # n (irand 4), fast 2 $ s "hh*4" # gain (range 0.6 0.9 rand) # cutoff 8000 # pan (range 0.2 0.8 rand)]
+-- Drums - half-time breakbeat feel, dry kick, wet snare
+d2 $ stack [s "bd ~ ~ ~ bd ~ ~ ~" # gain 1.3 # cutoff 3000, s "~ ~ ~ ~ sd ~ ~ ~" # gain 1.0 # room 0.6 # size 0.7, s "hh hh hh hh hh hh hh hh" # gain 0.6 # cutoff 5000 # pan (range 0.35 0.65 rand)]
 
--- Ride/crash accents
-d3 $ every 4 (const $ s "cr") $ s "~ ~ ~ oh" # gain 0.7 # room 0.5 # size 0.6
-
--- Atmosphere - wider stereo, more movement
-d4 $ slow 4 $ s "pad:3 pad:1 pad:5 pad:2" # cutoff (range 600 2000 $ slow 16 sine) # room 0.95 # size 0.95 # delay 0.4 # delaytime (1/3) # delayfeedback 0.5 # gain 0.65
-
--- String/melodic stabs - sparse and dramatic
-d5 $ slow 4 $ s "~ ~ arpy:7 ~" # sustain 2 # room 0.8 # size 0.8 # cutoff 3000 # gain 0.5
+-- Atmosphere continues
+d4 $ slow 4 $ s "pad:3 pad:5" # cutoff 800 # room 0.95 # size 0.95 # gain 0.5
 
 -- =============================================
--- SECTION 4: BREAKDOWN
--- Strip everything back. Exposed bass, swelling
--- atmosphere. Tension before the final build.
+-- SECTION 3: FIRST VERSE (~2:00 - ~3:00)
+-- Full groove locked in. Bass pattern more insistent.
+-- Side-stick/snare doubled with pitched effect.
+-- Guitar texture begins to creep in.
 -- =============================================
 
--- Bass only - exposed, menacing
-d1 $ slow 4 $ note "a1 ~ ~ [~ e1]" # s "supersaw" # sustain 1 # cutoff (range 200 600 $ slow 8 sine) # resonance 0.35 # room 0.6 # size 0.7 # gain 1.2
+-- Bass - tighter, more driving
+d1 $ note "c2 c2 c2 c2 c2 c2 db2 c2" # s "jvbass" # sustain 0.25 # cutoff (range 250 600 $ slow 4 sine) # resonance 0.25 # room 0.3 # size 0.4 # gain 1.5 # lpf 400
 
--- Silence drums and accents
-d2 $ silence
+-- Drums - fuller pattern with ghost notes
+d2 $ stack [s "bd ~ [~ bd] ~ bd ~ ~ ~" # gain 1.3 # cutoff 3000, s "~ ~ ~ ~ sd ~ ~ [~ sd:3]" # gain 1.1 # room 0.5 # size 0.6, s "hh hh hh hh hh hh hh hh" # gain 0.65 # cutoff 5500 # pan (range 0.3 0.7 rand), slow 2 $ s "~ ~ cp ~ ~ ~ ~ ~" # gain 0.5 # room 0.7]
+
+-- Guitar texture - distorted, heavily delayed, functions as a pad
+d3 $ slow 4 $ note "c4 ~ db4 ~" # s "gtr:1" # cutoff 2000 # room 0.9 # size 0.9 # delay 0.8 # delaytime (1/4) # delayfeedback 0.6 # gain 0.4
+
+-- Atmosphere - wider
+d4 $ slow 4 $ s "pad:3 pad:1 pad:5 pad:2" # cutoff (range 500 1500 $ slow 16 sine) # room 0.95 # size 0.95 # delay 0.3 # delaytime (1/3) # delayfeedback 0.4 # gain 0.5
+
+-- =============================================
+-- SECTION 4: BUILD / SECOND VERSE (~3:00 - ~4:30)
+-- Intensity increases. Guitar becomes more prominent.
+-- Bass hits harder. Drums get busier.
+-- =============================================
+
+-- Bass - more aggressive filter sweep
+d1 $ note "c2 c2 [c2 c2] c2 c2 c2 db2 c2" # s "jvbass" # sustain 0.2 # cutoff (range 300 900 $ slow 4 sine) # resonance 0.3 # room 0.3 # size 0.4 # gain 1.5 # lpf 500
+
+-- Drums - more intense, busier hat pattern
+d2 $ stack [s "bd ~ [~ bd] ~ bd ~ [bd ~] ~" # gain 1.4 # cutoff 3000, s "~ ~ ~ ~ sd ~ ~ [~ sd:3]" # gain 1.2 # room 0.4 # size 0.5, fast 2 $ s "hh*4" # gain (range 0.5 0.8 rand) # cutoff 7000 # pan (range 0.2 0.8 rand), s "~ ~ ~ ~ ~ ~ ~ cp" # gain 0.6 # room 0.6]
+
+-- Guitar - louder, more distorted, sliding between notes
+d3 $ slow 2 $ note "c4 db4 c4 eb4" # s "gtr:1" # cutoff 3000 # room 0.85 # size 0.85 # delay 0.7 # delaytime (1/4) # delayfeedback 0.5 # gain 0.55
+
+-- Atmosphere
+d4 $ slow 4 $ s "pad:3 pad:1 pad:5 pad:2" # cutoff (range 600 2000 $ slow 8 sine) # room 0.95 # size 0.95 # delay 0.4 # delaytime (1/3) # delayfeedback 0.5 # gain 0.55
+
+-- =============================================
+-- SECTION 5: BREAKDOWN (~4:30 - ~5:00)
+-- Strip back. Bass exposed. Atmosphere swells.
+-- Tension before the final wall of sound.
+-- =============================================
+
+-- Bass - sparse, menacing
+d1 $ slow 2 $ note "c2 ~ ~ [~ db2]" # s "jvbass" # sustain 1 # cutoff (range 200 500 $ slow 8 sine) # resonance 0.35 # room 0.6 # size 0.7 # gain 1.3 # lpf 300
+
+-- Drums strip back
+d2 $ s "bd ~ ~ ~ ~ ~ ~ ~" # gain 1.2 # cutoff 2000
+
+-- Guitar drops out
 d3 $ silence
 
--- Atmosphere swells
-d4 $ slow 8 $ s "pad:3" # cutoff (range 400 1500 $ slow 16 sine) # room 0.98 # size 0.98 # gain (range 0.3 0.7 $ slow 8 sine)
-
--- Distant melodic fragment
-d5 $ slow 8 $ s "~ arpy:4" # sustain 4 # room 0.95 # size 0.95 # cutoff 2000 # gain 0.4
+-- Atmosphere swells dramatically
+d4 $ slow 8 $ s "pad:3" # cutoff (range 400 1800 $ slow 16 sine) # room 0.98 # size 0.98 # gain (range 0.4 0.8 $ slow 8 sine)
 
 -- =============================================
--- SECTION 5: FINAL BUILD
--- Everything returns with maximum intensity.
--- Noise riser, densest drums, widest bass.
+-- SECTION 6: FINAL BUILD (~5:00 - ~6:19)
+-- Everything returns at maximum intensity.
+-- Wall of guitar distortion. Heaviest drums.
+-- Bass at its most aggressive.
 -- =============================================
 
--- Bass - most aggressive, stereo width
-d1 $ every 4 (jux (# cutoff 1200)) $ every 8 (rev) $ slow 2 $ note "a1 [a1 a1] e1 [g1 a1 e1 g1]" # s "supersaw" # sustain 0.25 # cutoff (range 300 1000 $ slow 4 sine) # resonance 0.3 # room 0.3 # size 0.5 # gain 1.5 # lpf 500
+-- Bass - hardest hitting, most filter movement
+d1 $ every 4 (jux rev) $ note "c2 c2 [c2 c2] c2 c2 c2 db2 [c2 db2]" # s "jvbass" # sustain 0.2 # cutoff (range 300 1200 $ slow 4 sine) # resonance 0.3 # room 0.25 # size 0.4 # gain 1.6 # lpf 500
 
--- Drums - most intense pattern
-d2 $ every 4 (jux (0.125 ~>)) $ stack [s "bd [~ bd] bd:3 bd(3,8,2)" # gain 1.4 # cutoff 3000, s "[~ sd] ~ [sd:2 ~] sd" # gain 1.2 # room 0.2 # n (irand 4), fast 2 $ s "hh*4" # gain (range 0.7 1.0 rand) # cutoff 10000 # pan (range 0.1 0.9 rand), slow 4 $ s "cr ~ ~ ~" # gain 0.8]
+-- Drums - most intense
+d2 $ stack [s "bd ~ [~ bd] ~ bd [~ bd] [bd ~] ~" # gain 1.4 # cutoff 3000, s "~ ~ ~ ~ sd ~ [~ sd:2] [~ sd:3]" # gain 1.3 # room 0.3 # size 0.4, fast 2 $ s "hh*4" # gain (range 0.6 0.9 rand) # cutoff 9000 # pan (range 0.1 0.9 rand), s "~ ~ ~ ~ ~ ~ ~ cp" # gain 0.7 # room 0.5, slow 4 $ s "cr ~ ~ ~" # gain 0.7]
 
--- Open hats
-d3 $ s "oh ~ [~ oh] ~" # gain 0.6 # room 0.4 # cutoff 5000
+-- Guitar - wall of distortion, dense
+d3 $ note "c4 db4 c4 eb4" # s "gtr:1" # cutoff 4000 # room 0.8 # size 0.85 # delay 0.6 # delaytime (1/4) # delayfeedback 0.5 # gain 0.65
 
--- Atmosphere - full, dense
-d4 $ slow 2 $ s "pad:3 pad:1 pad:5 pad:2" # cutoff (range 800 3000 $ slow 8 sine) # room 0.95 # size 0.95 # delay 0.5 # delaytime (1/3) # delayfeedback 0.6 # gain 0.7
+-- 808 open hat accents
+d5 $ s "~ ~ [~ 808oh] ~" # gain 0.5 # room 0.4 # cutoff 4000
 
--- Stabs - more frequent
-d5 $ slow 2 $ s "arpy:7 ~ arpy:4 ~" # sustain 1.5 # room 0.7 # size 0.7 # cutoff 4000 # gain 0.55
+-- Atmosphere - full density
+d4 $ slow 2 $ s "pad:3 pad:1 pad:5 pad:2" # cutoff (range 800 3000 $ slow 8 sine) # room 0.95 # size 0.95 # delay 0.5 # delaytime (1/3) # delayfeedback 0.6 # gain 0.6
 
--- Noise sweep riser
-d6 $ slow 8 $ s "noise" # cutoff (range 200 8000 $ slow 8 saw) # resonance 0.5 # gain 0.4 # room 0.8
+-- Noise riser for final tension
+d6 $ slow 8 $ s "noise" # cutoff (range 200 6000 $ slow 8 saw) # resonance 0.4 # gain 0.35 # room 0.7
 
 -- =============================================
 -- SILENCE / END
