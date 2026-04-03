@@ -20,7 +20,7 @@ setcps (72/60/4)
 -- Sub-bass drone. Dark and empty.
 -- =============================================
 
-d1 $ slow 4 $ note "c2" # s "jvbass" # sustain 4 # cutoff 150 # resonance 0.15 # room 0.8 # size 0.9 # gain 0.9 # lpf 200
+d1 $ slow 4 $ note "c1" # s "jvbass" # sustain 4 # cutoff 150 # resonance 0.15 # room 0.8 # size 0.9 # gain 0.9 # lpf 200
 
 d4 $ slow 8 $ s "pad:3" # cutoff 400 # room 0.95 # size 0.95 # delay 0.5 # delaytime (1/3) # delayfeedback 0.5 # gain 0.35
 
@@ -31,10 +31,10 @@ d4 $ slow 8 $ s "pad:3" # cutoff 400 # room 0.95 # size 0.95 # delay 0.5 # delay
 -- =============================================
 
 -- Bass riff: Bb Bb Bb Bb Bb Bb Bb C (8th notes, one bar)
-d1 $ note "bb1 bb1 bb1 bb1 bb1 bb1 bb1 c2" # s "jvbass" # sustain 0.2 # cutoff (range 150 350 $ slow 4 sine) # resonance 0.15 # room 0.3 # size 0.4 # gain 1.0 # lpf 300
+d1 $ note "bb0 bb0 bb0 bb0 bb0 bb0 bb0 c1" # s "jvbass" # sustain 0.2 # cutoff (range 150 350 $ slow 4 sine) # resonance 0.15 # room 0.3 # size 0.4 # gain 1.0 # lpf 300
 
 -- Drums: continuous hats, kick on 1, snare on 3
-d2 $ stack [s "bd ~ ~ ~ ~ ~ ~ ~" # gain 1.0 # cutoff 2500, s "~ ~ ~ ~ sd ~ ~ ~" # gain 0.75 # room 0.5 # size 0.5, s "hh hh hh hh hh hh hh hh" # gain 0.45 # cutoff 4500]
+d2 $ stack [s "bd ~ ~ ~ ~ ~ ~ ~" # gain 1.0 # cutoff 2500, s "~ ~ ~ ~ sd ~ ~ ~" # gain 0.75 # room 0.5 # size 0.5, s "hh hh hh hh hh hh hh hh" # gain 0.8 # cutoff 8000]
 
 d4 $ slow 4 $ s "pad:3 pad:5" # cutoff 600 # room 0.9 # size 0.9 # gain 0.35
 
@@ -43,9 +43,9 @@ d4 $ slow 4 $ s "pad:3 pad:5" # cutoff 600 # room 0.9 # size 0.9 # gain 0.35
 -- Pattern locked. Slightly more filter movement.
 -- =============================================
 
-d1 $ note "bb1 bb1 bb1 bb1 bb1 bb1 bb1 c2" # s "jvbass" # sustain 0.2 # cutoff (range 180 400 $ slow 4 sine) # resonance 0.15 # room 0.25 # size 0.35 # gain 1.05 # lpf 350
+d1 $ note "bb0 bb0 bb0 bb0 bb0 bb0 bb0 c1" # s "jvbass" # sustain 0.2 # cutoff (range 180 400 $ slow 4 sine) # resonance 0.15 # room 0.25 # size 0.35 # gain 1.05 # lpf 350
 
-d2 $ stack [s "bd ~ ~ ~ ~ ~ ~ ~" # gain 1.05 # cutoff 2800, s "~ ~ ~ ~ sd ~ ~ ~" # gain 0.8 # room 0.45 # size 0.5, s "hh hh hh hh hh hh hh hh" # gain 0.5 # cutoff 5000]
+d2 $ stack [s "bd ~ ~ ~ ~ ~ ~ ~" # gain 1.05 # cutoff 2800, s "~ ~ ~ ~ sd ~ ~ ~" # gain 0.8 # room 0.45 # size 0.5, s "hh hh hh hh hh hh hh hh" # gain 0.8 # cutoff 8000]
 
 d4 $ slow 4 $ s "pad:3 pad:1 pad:5 pad:2" # cutoff (range 500 1000 $ slow 16 sine) # room 0.9 # size 0.9 # gain 0.38
 
@@ -54,9 +54,9 @@ d4 $ slow 4 $ s "pad:3 pad:1 pad:5 pad:2" # cutoff (range 500 1000 $ slow 16 sin
 -- Power chords: C5 D5 F5 Eb5. Distorted, delayed.
 -- =============================================
 
-d1 $ note "bb1 bb1 bb1 bb1 bb1 bb1 bb1 c2" # s "jvbass" # sustain 0.18 # cutoff (range 200 450 $ slow 4 sine) # resonance 0.15 # room 0.2 # size 0.3 # gain 1.1 # lpf 400
+d1 $ note "bb0 bb0 bb0 bb0 bb0 bb0 bb0 c1" # s "jvbass" # sustain 0.18 # cutoff (range 200 450 $ slow 4 sine) # resonance 0.15 # room 0.2 # size 0.3 # gain 1.1 # lpf 400
 
-d2 $ stack [s "bd ~ ~ ~ [~ bd] ~ ~ ~" # gain 1.1 # cutoff 3000, s "~ ~ ~ ~ sd ~ ~ ~" # gain 0.85 # room 0.35 # size 0.4, s "hh hh hh hh hh hh hh hh" # gain 0.5 # cutoff 6000]
+d2 $ stack [s "bd ~ ~ ~ [~ bd] ~ ~ ~" # gain 1.1 # cutoff 3000, s "~ ~ ~ ~ sd ~ ~ ~" # gain 0.85 # room 0.35 # size 0.4, s "hh hh hh hh hh hh hh hh" # gain 0.8 # cutoff 8000]
 
 -- Guitar: power chord progression C5 D5 F5 Eb5 (one chord per bar)
 d3 $ slow 4 $ note "c4 d4 f4 eb4" # s "gtr:1" # sustain 2 # cutoff 1800 # room 0.8 # size 0.8 # delay 0.6 # delaytime (1/4) # delayfeedback 0.4 # gain 0.3
@@ -68,9 +68,9 @@ d4 $ slow 4 $ s "pad:3 pad:1 pad:5 pad:2" # cutoff (range 600 1200 $ slow 8 sine
 -- Guitar louder. Everything at max controlled intensity.
 -- =============================================
 
-d1 $ note "bb1 bb1 bb1 bb1 bb1 bb1 bb1 c2" # s "jvbass" # sustain 0.15 # cutoff (range 200 500 $ slow 4 sine) # resonance 0.15 # room 0.2 # size 0.3 # gain 1.15 # lpf 450
+d1 $ note "bb0 bb0 bb0 bb0 bb0 bb0 bb0 c1" # s "jvbass" # sustain 0.15 # cutoff (range 200 500 $ slow 4 sine) # resonance 0.15 # room 0.2 # size 0.3 # gain 1.15 # lpf 450
 
-d2 $ stack [s "bd ~ ~ ~ [~ bd] ~ ~ ~" # gain 1.15 # cutoff 3000, s "~ ~ ~ ~ sd ~ ~ ~" # gain 0.9 # room 0.3 # size 0.35, s "hh hh hh hh hh hh hh hh" # gain 0.55 # cutoff 7000]
+d2 $ stack [s "bd ~ ~ ~ [~ bd] ~ ~ ~" # gain 1.15 # cutoff 3000, s "~ ~ ~ ~ sd ~ ~ ~" # gain 0.9 # room 0.3 # size 0.35, s "hh hh hh hh hh hh hh hh" # gain 0.85 # cutoff 9000]
 
 -- Guitar: louder, brighter
 d3 $ slow 4 $ note "c4 d4 f4 eb4" # s "gtr:1" # sustain 2 # cutoff 2500 # room 0.75 # size 0.8 # delay 0.5 # delaytime (1/4) # delayfeedback 0.35 # gain 0.4
@@ -82,9 +82,9 @@ d4 $ slow 2 $ s "pad:3 pad:1 pad:5 pad:2" # cutoff (range 700 1500 $ slow 8 sine
 -- Strip back. Bass exposed. Fade out.
 -- =============================================
 
-d1 $ slow 2 $ note "bb1 ~ ~ [~ c2]" # s "jvbass" # sustain 1 # cutoff (range 150 350 $ slow 8 sine) # resonance 0.15 # room 0.5 # size 0.6 # gain 0.9 # lpf 250
+d1 $ slow 2 $ note "bb0 ~ ~ [~ c1]" # s "jvbass" # sustain 1 # cutoff (range 150 350 $ slow 8 sine) # resonance 0.15 # room 0.5 # size 0.6 # gain 0.9 # lpf 250
 
-d2 $ stack [s "bd ~ ~ ~ ~ ~ ~ ~" # gain 0.9 # cutoff 2000, s "hh ~ hh ~ hh ~ hh ~" # gain 0.35 # cutoff 4000]
+d2 $ stack [s "bd ~ ~ ~ ~ ~ ~ ~" # gain 0.9 # cutoff 2000, s "hh ~ hh ~ hh ~ hh ~" # gain 0.7 # cutoff 8000]
 
 d3 $ silence
 
