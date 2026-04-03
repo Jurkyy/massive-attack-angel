@@ -14,7 +14,15 @@ if command -v pw-jack &>/dev/null; then
     echo "PipeWire detected, using pw-jack for sclang"
     SCLANG_CMD="pw-jack sclang"
 fi
-$SCLANG_CMD -e 'Quarks.checkForUpdates({Quarks.install("SuperDirt", "v1.7.3"); thisProcess.recompile()}); 0.exit;'
+echo "Installing SuperDirt quark (this downloads ~200MB of samples)..."
+echo "Run this manually if it fails:"
+echo "  pw-jack sclang"
+echo '  Quarks.install("SuperDirt", "v1.7.3");'
+echo "  0.exit;"
+echo ""
+$SCLANG_CMD <<'SCLANG_EOF'
+Quarks.install("SuperDirt", "v1.7.3");
+SCLANG_EOF
 
 echo ""
 echo "--- Locating BootTidal.hs ---"
@@ -36,5 +44,5 @@ fi
 echo ""
 echo "=== Setup complete ==="
 echo "Next steps:"
-echo "  1. Start SuperDirt:  sclang -e 'SuperDirt.start'"
+echo "  1. Start SuperDirt:  pw-jack sclang superdirt-startup.scd"
 echo "  2. Start TidalCycles in your editor"
