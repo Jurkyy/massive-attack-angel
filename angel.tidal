@@ -17,102 +17,78 @@ setcps (107.7/60/4)
 
 -- =============================================
 -- SECTION 1: INTRO (0:00 - 0:30)
--- Sub-bass drone. Very dark, low brightness (619 Hz).
--- Just the C pedal and atmosphere.
+-- Sub-bass drone. Very dark.
 -- =============================================
 
-d1 $ slow 4 $ note "c2" # s "jvbass" # sustain 4 # cutoff 150 # resonance 0.2 # room 0.85 # size 0.9 # gain 1.3 # lpf 200
+d1 $ slow 4 $ note "c2" # s "jvbass" # sustain 4 # cutoff 150 # resonance 0.15 # room 0.8 # size 0.9 # gain 0.9 # lpf 200
 
-d4 $ slow 8 $ s "pad:3" # cutoff 500 # room 0.98 # size 0.98 # delay 0.7 # delaytime (1/3) # delayfeedback 0.7 # gain 0.45
+d4 $ slow 8 $ s "pad:3" # cutoff 400 # room 0.95 # size 0.95 # delay 0.5 # delaytime (1/3) # delayfeedback 0.5 # gain 0.35
 
 -- =============================================
 -- SECTION 2: BASS ENTERS (0:30 - 1:00)
--- The C/Db bass pattern begins. Brightness ~850 Hz.
--- Drums start sparse.
+-- The C/Db bass pattern begins. Drums start sparse.
 -- =============================================
 
--- Bass: C2/Db2 alternation - the core riff
-d1 $ note "c2 c2 db2 c2 db2 c2 db2 c2" # s "jvbass" # sustain 0.25 # cutoff (range 150 400 $ slow 4 sine) # resonance 0.25 # room 0.4 # size 0.5 # gain 1.4 # lpf 300
+d1 $ note "c2 c2 db2 c2 db2 c2 db2 c2" # s "jvbass" # sustain 0.25 # cutoff (range 150 350 $ slow 4 sine) # resonance 0.15 # room 0.3 # size 0.4 # gain 1.0 # lpf 300
 
--- Drums: half-time, kick on &2 and 3, snare on 1
-d2 $ stack [s "~ ~ ~ bd bd ~ bd ~" # gain 1.2 # cutoff 2500, s "sd ~ ~ sd sd ~ ~ ~" # gain 0.9 # room 0.6 # size 0.7, s "hh hh hh ~ hh ~ hh ~" # gain 0.55 # cutoff 4500 # pan (range 0.35 0.65 rand)]
+d2 $ stack [s "~ ~ ~ bd bd ~ bd ~" # gain 1.0 # cutoff 2500, s "sd ~ ~ sd sd ~ ~ ~" # gain 0.75 # room 0.5 # size 0.6, s "hh hh hh ~ hh ~ hh ~" # gain 0.45 # cutoff 4500 # pan (range 0.4 0.6 rand)]
 
-d4 $ slow 4 $ s "pad:3 pad:5" # cutoff 700 # room 0.95 # size 0.95 # gain 0.45
+d4 $ slow 4 $ s "pad:3 pad:5" # cutoff 600 # room 0.9 # size 0.9 # gain 0.35
 
 -- =============================================
 -- SECTION 3: GROOVE LOCKED (1:00 - 2:00)
--- Full pattern established. Brightness climbing to ~1350 Hz.
--- Bass more insistent, drums fuller.
+-- Full pattern established. Bass more insistent.
 -- =============================================
 
--- Bass: tighter C/Db with more filter movement
-d1 $ note "c2 db2 c2 c2 db2 c2 db2 [c2 db2]" # s "jvbass" # sustain 0.2 # cutoff (range 200 600 $ slow 4 sine) # resonance 0.3 # room 0.35 # size 0.45 # gain 1.5 # lpf 400
+d1 $ note "c2 db2 c2 c2 db2 c2 db2 [c2 db2]" # s "jvbass" # sustain 0.2 # cutoff (range 180 450 $ slow 4 sine) # resonance 0.15 # room 0.25 # size 0.35 # gain 1.05 # lpf 350
 
--- Drums: fuller, ghost snares
-d2 $ stack [s "~ ~ [~ bd] bd bd ~ [bd ~] ~" # gain 1.3 # cutoff 2800, s "sd ~ ~ [sd ~] sd ~ ~ [~ sd:3]" # gain 1.0 # room 0.5 # size 0.6, s "hh hh hh ~ hh ~ hh ~" # gain 0.6 # cutoff 5500 # pan (range 0.3 0.7 rand)]
+d2 $ stack [s "~ ~ [~ bd] bd bd ~ [bd ~] ~" # gain 1.05 # cutoff 2800, s "sd ~ ~ [sd ~] sd ~ ~ [~ sd:3]" # gain 0.8 # room 0.45 # size 0.5, s "hh hh hh ~ hh ~ hh ~" # gain 0.5 # cutoff 5000 # pan (range 0.35 0.65 rand)]
 
--- Atmosphere - opening up
-d4 $ slow 4 $ s "pad:3 pad:1 pad:5 pad:2" # cutoff (range 600 1400 $ slow 16 sine) # room 0.95 # size 0.95 # delay 0.3 # delaytime (1/3) # delayfeedback 0.4 # gain 0.5
+d4 $ slow 4 $ s "pad:3 pad:1 pad:5 pad:2" # cutoff (range 500 1000 $ slow 16 sine) # room 0.9 # size 0.9 # gain 0.38
 
 -- =============================================
 -- SECTION 4: BUILDING (2:00 - 3:30)
--- Guitar texture enters. Brightness ~1860 Hz.
--- Everything getting wider and more intense.
+-- Guitar texture enters. Gradually brighter.
 -- =============================================
 
--- Bass: more aggressive filter sweep
-d1 $ note "c2 db2 [c2 db2] c2 db2 c2 db2 [c2 db2]" # s "jvbass" # sustain 0.18 # cutoff (range 250 900 $ slow 4 sine) # resonance 0.3 # room 0.3 # size 0.4 # gain 1.5 # lpf 500
+d1 $ note "c2 db2 [c2 db2] c2 db2 c2 db2 [c2 db2]" # s "jvbass" # sustain 0.18 # cutoff (range 200 500 $ slow 4 sine) # resonance 0.15 # room 0.2 # size 0.3 # gain 1.1 # lpf 400
 
--- Drums: busier hats, harder hits
-d2 $ stack [s "~ ~ [~ bd] bd bd [~ bd] [bd ~] ~" # gain 1.35 # cutoff 3000, s "sd ~ ~ [sd ~] sd ~ [~ sd:2] [~ sd:3]" # gain 1.1 # room 0.4 # size 0.5, fast 2 $ s "hh*4" # gain (range 0.5 0.8 rand) # cutoff 7000 # pan (range 0.2 0.8 rand), s "~ ~ ~ ~ ~ ~ ~ cp" # gain 0.5 # room 0.5]
+d2 $ stack [s "~ ~ [~ bd] bd bd [~ bd] [bd ~] ~" # gain 1.1 # cutoff 3000, s "sd ~ ~ [sd ~] sd ~ [~ sd:2] [~ sd:3]" # gain 0.85 # room 0.35 # size 0.4, s "hh hh hh hh hh hh hh hh" # gain 0.5 # cutoff 6000 # pan (range 0.3 0.7 rand)]
 
--- Guitar texture - distorted, drenched in delay
-d3 $ slow 2 $ note "c4 db4 c4 eb4" # s "gtr:1" # cutoff 2500 # room 0.9 # size 0.9 # delay 0.8 # delaytime (1/4) # delayfeedback 0.6 # gain 0.45
+d3 $ slow 2 $ note "c4 db4 c4 eb4" # s "gtr:1" # cutoff 1800 # room 0.8 # size 0.8 # delay 0.6 # delaytime (1/4) # delayfeedback 0.4 # gain 0.3
 
--- Atmosphere - brighter
-d4 $ slow 4 $ s "pad:3 pad:1 pad:5 pad:2" # cutoff (range 800 2000 $ slow 8 sine) # room 0.95 # size 0.95 # delay 0.4 # delaytime (1/3) # delayfeedback 0.5 # gain 0.55
+d4 $ slow 4 $ s "pad:3 pad:1 pad:5 pad:2" # cutoff (range 600 1200 $ slow 8 sine) # room 0.9 # size 0.9 # delay 0.3 # delaytime (1/3) # delayfeedback 0.3 # gain 0.35
 
 -- =============================================
 -- SECTION 5: PEAK INTENSITY (3:30 - 4:30)
--- Maximum brightness ~2032 Hz. Wall of guitar.
--- Heaviest bass. Densest drums.
+-- Loudest section but still controlled.
+-- Guitar more present. Bass stays deep.
 -- =============================================
 
--- Bass: most aggressive, widest filter sweep
-d1 $ every 4 (jux rev) $ note "c2 db2 [c2 db2] c2 db2 c2 db2 [c2 db2]" # s "jvbass" # sustain 0.15 # cutoff (range 300 1200 $ slow 4 sine) # resonance 0.3 # room 0.25 # size 0.35 # gain 1.6 # lpf 550
+d1 $ note "c2 db2 [c2 db2] c2 db2 c2 db2 [c2 db2]" # s "jvbass" # sustain 0.15 # cutoff (range 200 550 $ slow 4 sine) # resonance 0.15 # room 0.2 # size 0.3 # gain 1.15 # lpf 450
 
--- Drums: most intense
-d2 $ stack [s "~ ~ [~ bd] bd bd [~ bd] [bd ~] ~" # gain 1.4 # cutoff 3000, s "[sd ~] ~ ~ [sd ~] sd ~ [~ sd:2] sd" # gain 1.2 # room 0.3 # size 0.4, fast 2 $ s "hh*4" # gain (range 0.6 0.9 rand) # cutoff 9000 # pan (range 0.1 0.9 rand), s "~ ~ ~ ~ ~ ~ ~ cp" # gain 0.6 # room 0.4, slow 4 $ s "cr ~ ~ ~" # gain 0.65]
+d2 $ stack [s "~ ~ [~ bd] bd bd [~ bd] [bd ~] ~" # gain 1.15 # cutoff 3000, s "[sd ~] ~ ~ [sd ~] sd ~ [~ sd:2] sd" # gain 0.9 # room 0.3 # size 0.35, s "hh hh hh hh hh hh hh hh" # gain 0.55 # cutoff 7000 # pan (range 0.25 0.75 rand), slow 4 $ s "cr ~ ~ ~" # gain 0.5]
 
--- Guitar: loud, dense wall of distortion
-d3 $ note "c4 db4 c4 eb4" # s "gtr:1" # cutoff 4000 # room 0.85 # size 0.85 # delay 0.7 # delaytime (1/4) # delayfeedback 0.5 # gain 0.6
+d3 $ note "c4 db4 c4 eb4" # s "gtr:1" # cutoff 2500 # room 0.75 # size 0.8 # delay 0.5 # delaytime (1/4) # delayfeedback 0.35 # gain 0.4
 
--- 808 open hat accents
-d5 $ s "~ ~ [~ 808oh] ~" # gain 0.45 # room 0.4 # cutoff 4000
+d5 $ s "~ ~ [~ 808oh] ~" # gain 0.35 # room 0.3 # cutoff 3500
 
--- Atmosphere: brightest
-d4 $ slow 2 $ s "pad:3 pad:1 pad:5 pad:2" # cutoff (range 1000 3000 $ slow 8 sine) # room 0.95 # size 0.95 # delay 0.5 # delaytime (1/3) # delayfeedback 0.6 # gain 0.6
+d4 $ slow 2 $ s "pad:3 pad:1 pad:5 pad:2" # cutoff (range 700 1500 $ slow 8 sine) # room 0.9 # size 0.9 # delay 0.3 # delaytime (1/3) # delayfeedback 0.3 # gain 0.38
 
 -- =============================================
 -- SECTION 6: BREAKDOWN + FADE (4:30 - 5:24)
--- Energy drops. Brightness falls to ~1150 Hz.
--- Bass exposed. Sparse drums. Fading out.
+-- Energy drops. Bass exposed. Fading out.
 -- =============================================
 
--- Bass: sparse, exposed
-d1 $ slow 2 $ note "c2 ~ ~ [~ db2]" # s "jvbass" # sustain 1 # cutoff (range 150 400 $ slow 8 sine) # resonance 0.3 # room 0.6 # size 0.7 # gain 1.2 # lpf 250
+d1 $ slow 2 $ note "c2 ~ ~ [~ db2]" # s "jvbass" # sustain 1 # cutoff (range 150 350 $ slow 8 sine) # resonance 0.15 # room 0.5 # size 0.6 # gain 0.9 # lpf 250
 
--- Drums: minimal
-d2 $ s "~ ~ ~ bd ~ ~ ~ ~" # gain 1.1 # cutoff 2000
+d2 $ s "~ ~ ~ bd ~ ~ ~ ~" # gain 0.9 # cutoff 2000
 
--- Guitar drops
 d3 $ silence
 
--- 808 drops
 d5 $ silence
 
--- Atmosphere: closing down
-d4 $ slow 8 $ s "pad:3" # cutoff (range 300 1000 $ slow 16 sine) # room 0.98 # size 0.98 # gain (range 0.3 0.6 $ slow 8 sine)
+d4 $ slow 8 $ s "pad:3" # cutoff (range 300 800 $ slow 16 sine) # room 0.95 # size 0.95 # gain (range 0.25 0.4 $ slow 8 sine)
 
 -- =============================================
 -- SILENCE / END
