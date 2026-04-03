@@ -7,7 +7,7 @@
 --   Tempo: 107.7 BPM
 --   Key: C Phrygian (C2 and Db2 dominate)
 --   Bass: Rapid C2/Db2 alternation with filter modulation
---   Drums: Half-time feel, kick on &2 and 3, snare on 1 and &2
+--   Drums: Half-time feel, continuous hats, snare once per bar
 --   Structure: Brightness builds from 619Hz to 2032Hz over 4 minutes
 --
 -- =============================================
@@ -31,7 +31,7 @@ d4 $ slow 8 $ s "pad:3" # cutoff 400 # room 0.95 # size 0.95 # delay 0.5 # delay
 
 d1 $ note "c2 c2 db2 c2 db2 c2 db2 c2" # s "jvbass" # sustain 0.25 # cutoff (range 150 350 $ slow 4 sine) # resonance 0.15 # room 0.3 # size 0.4 # gain 1.0 # lpf 300
 
-d2 $ stack [s "~ ~ ~ bd bd ~ bd ~" # gain 1.0 # cutoff 2500, s "sd ~ ~ sd sd ~ ~ ~" # gain 0.75 # room 0.5 # size 0.6, s "hh hh hh ~ hh ~ hh ~" # gain 0.45 # cutoff 4500 # pan (range 0.4 0.6 rand)]
+d2 $ stack [s "bd ~ ~ ~ ~ ~ ~ ~" # gain 1.0 # cutoff 2500, s "~ ~ ~ ~ sd ~ ~ ~" # gain 0.75 # room 0.5 # size 0.6, s "hh hh hh hh hh hh hh hh" # gain 0.45 # cutoff 4500]
 
 d4 $ slow 4 $ s "pad:3 pad:5" # cutoff 600 # room 0.9 # size 0.9 # gain 0.35
 
@@ -42,7 +42,7 @@ d4 $ slow 4 $ s "pad:3 pad:5" # cutoff 600 # room 0.9 # size 0.9 # gain 0.35
 
 d1 $ note "c2 db2 c2 c2 db2 c2 db2 [c2 db2]" # s "jvbass" # sustain 0.2 # cutoff (range 180 450 $ slow 4 sine) # resonance 0.15 # room 0.25 # size 0.35 # gain 1.05 # lpf 350
 
-d2 $ stack [s "~ ~ [~ bd] bd bd ~ [bd ~] ~" # gain 1.05 # cutoff 2800, s "sd ~ ~ [sd ~] sd ~ ~ [~ sd:3]" # gain 0.8 # room 0.45 # size 0.5, s "hh hh hh ~ hh ~ hh ~" # gain 0.5 # cutoff 5000 # pan (range 0.35 0.65 rand)]
+d2 $ stack [s "bd ~ ~ ~ ~ ~ ~ ~" # gain 1.05 # cutoff 2800, s "~ ~ ~ ~ sd ~ ~ ~" # gain 0.8 # room 0.45 # size 0.5, s "hh hh hh hh hh hh hh hh" # gain 0.5 # cutoff 5000]
 
 d4 $ slow 4 $ s "pad:3 pad:1 pad:5 pad:2" # cutoff (range 500 1000 $ slow 16 sine) # room 0.9 # size 0.9 # gain 0.38
 
@@ -53,7 +53,7 @@ d4 $ slow 4 $ s "pad:3 pad:1 pad:5 pad:2" # cutoff (range 500 1000 $ slow 16 sin
 
 d1 $ note "c2 db2 [c2 db2] c2 db2 c2 db2 [c2 db2]" # s "jvbass" # sustain 0.18 # cutoff (range 200 500 $ slow 4 sine) # resonance 0.15 # room 0.2 # size 0.3 # gain 1.1 # lpf 400
 
-d2 $ stack [s "~ ~ [~ bd] bd bd [~ bd] [bd ~] ~" # gain 1.1 # cutoff 3000, s "sd ~ ~ [sd ~] sd ~ [~ sd:2] [~ sd:3]" # gain 0.85 # room 0.35 # size 0.4, s "hh hh hh hh hh hh hh hh" # gain 0.5 # cutoff 6000 # pan (range 0.3 0.7 rand)]
+d2 $ stack [s "bd ~ ~ ~ [~ bd] ~ ~ ~" # gain 1.1 # cutoff 3000, s "~ ~ ~ ~ sd ~ ~ ~" # gain 0.85 # room 0.35 # size 0.4, s "hh hh hh hh hh hh hh hh" # gain 0.5 # cutoff 6000]
 
 d3 $ slow 2 $ note "c4 db4 c4 eb4" # s "gtr:1" # cutoff 1800 # room 0.8 # size 0.8 # delay 0.6 # delaytime (1/4) # delayfeedback 0.4 # gain 0.3
 
@@ -67,7 +67,7 @@ d4 $ slow 4 $ s "pad:3 pad:1 pad:5 pad:2" # cutoff (range 600 1200 $ slow 8 sine
 
 d1 $ note "c2 db2 [c2 db2] c2 db2 c2 db2 [c2 db2]" # s "jvbass" # sustain 0.15 # cutoff (range 200 550 $ slow 4 sine) # resonance 0.15 # room 0.2 # size 0.3 # gain 1.15 # lpf 450
 
-d2 $ stack [s "~ ~ [~ bd] bd bd [~ bd] [bd ~] ~" # gain 1.15 # cutoff 3000, s "[sd ~] ~ ~ [sd ~] sd ~ [~ sd:2] sd" # gain 0.9 # room 0.3 # size 0.35, s "hh hh hh hh hh hh hh hh" # gain 0.55 # cutoff 7000 # pan (range 0.25 0.75 rand), slow 4 $ s "cr ~ ~ ~" # gain 0.5]
+d2 $ stack [s "bd ~ ~ ~ [~ bd] ~ ~ ~" # gain 1.15 # cutoff 3000, s "~ ~ ~ ~ sd ~ ~ ~" # gain 0.9 # room 0.3 # size 0.35, s "hh hh hh hh hh hh hh hh" # gain 0.55 # cutoff 7000]
 
 d3 $ note "c4 db4 c4 eb4" # s "gtr:1" # cutoff 2500 # room 0.75 # size 0.8 # delay 0.5 # delaytime (1/4) # delayfeedback 0.35 # gain 0.4
 
