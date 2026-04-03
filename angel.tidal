@@ -1,23 +1,23 @@
 -- =============================================
 -- MASSIVE ATTACK "ANGEL" - TidalCycles Recreation
--- C Phrygian | 107.7 BPM | Heavy sub-bass
+-- C minor | 72 BPM | Heavy sub-bass
 -- =============================================
 --
--- Analyzed from the actual MP3:
---   Tempo: 107.7 BPM
---   Key: C Phrygian (C2 and Db2 dominate)
---   Bass: Rapid C2/Db2 alternation with filter modulation
---   Drums: Half-time feel, continuous hats, snare once per bar
---   Structure: Brightness builds from 619Hz to 2032Hz over 4 minutes
+-- From tab transcriptions (Songsterr, BigBassTabs, Cifra Club):
+--   Tempo: 72 BPM
+--   Key: C minor
+--   Bass: Steady 8th notes — 7x root + step up (Bb->C or C->D)
+--   Guitar: Power chords C5, D5, F5, Eb5
+--   Drums: Continuous hats, snare once per bar
 --
 -- =============================================
 
 -- Set tempo (evaluate first!)
-setcps (107.7/60/4)
+setcps (72/60/4)
 
 -- =============================================
 -- SECTION 1: INTRO (0:00 - 0:30)
--- Sub-bass drone. Very dark.
+-- Sub-bass drone. Dark and empty.
 -- =============================================
 
 d1 $ slow 4 $ note "c2" # s "jvbass" # sustain 4 # cutoff 150 # resonance 0.15 # room 0.8 # size 0.9 # gain 0.9 # lpf 200
@@ -25,68 +25,68 @@ d1 $ slow 4 $ note "c2" # s "jvbass" # sustain 4 # cutoff 150 # resonance 0.15 #
 d4 $ slow 8 $ s "pad:3" # cutoff 400 # room 0.95 # size 0.95 # delay 0.5 # delaytime (1/3) # delayfeedback 0.5 # gain 0.35
 
 -- =============================================
--- SECTION 2: BASS ENTERS (0:30 - 1:00)
--- The C/Db bass pattern begins. Drums start sparse.
+-- SECTION 2: BASS + DRUMS ENTER (0:30 - 1:30)
+-- The iconic bass riff: 7x Bb on 8th notes, then C
+-- Drums: continuous hats, snare on beat 3
 -- =============================================
 
-d1 $ note "c2 c2 db2 c2 db2 c2 db2 c2" # s "jvbass" # sustain 0.25 # cutoff (range 150 350 $ slow 4 sine) # resonance 0.15 # room 0.3 # size 0.4 # gain 1.0 # lpf 300
+-- Bass riff: Bb Bb Bb Bb Bb Bb Bb C (8th notes, one bar)
+d1 $ note "bb1 bb1 bb1 bb1 bb1 bb1 bb1 c2" # s "jvbass" # sustain 0.2 # cutoff (range 150 350 $ slow 4 sine) # resonance 0.15 # room 0.3 # size 0.4 # gain 1.0 # lpf 300
 
-d2 $ stack [s "bd ~ ~ ~ ~ ~ ~ ~" # gain 1.0 # cutoff 2500, s "~ ~ ~ ~ sd ~ ~ ~" # gain 0.75 # room 0.5 # size 0.6, s "hh hh hh hh hh hh hh hh" # gain 0.45 # cutoff 4500]
+-- Drums: continuous hats, kick on 1, snare on 3
+d2 $ stack [s "bd ~ ~ ~ ~ ~ ~ ~" # gain 1.0 # cutoff 2500, s "~ ~ ~ ~ sd ~ ~ ~" # gain 0.75 # room 0.5 # size 0.5, s "hh hh hh hh hh hh hh hh" # gain 0.45 # cutoff 4500]
 
 d4 $ slow 4 $ s "pad:3 pad:5" # cutoff 600 # room 0.9 # size 0.9 # gain 0.35
 
 -- =============================================
--- SECTION 3: GROOVE LOCKED (1:00 - 2:00)
--- Full pattern established. Bass more insistent.
+-- SECTION 3: GROOVE (1:30 - 3:00)
+-- Pattern locked. Slightly more filter movement.
 -- =============================================
 
-d1 $ note "c2 db2 c2 c2 db2 c2 db2 [c2 db2]" # s "jvbass" # sustain 0.2 # cutoff (range 180 450 $ slow 4 sine) # resonance 0.15 # room 0.25 # size 0.35 # gain 1.05 # lpf 350
+d1 $ note "bb1 bb1 bb1 bb1 bb1 bb1 bb1 c2" # s "jvbass" # sustain 0.2 # cutoff (range 180 400 $ slow 4 sine) # resonance 0.15 # room 0.25 # size 0.35 # gain 1.05 # lpf 350
 
 d2 $ stack [s "bd ~ ~ ~ ~ ~ ~ ~" # gain 1.05 # cutoff 2800, s "~ ~ ~ ~ sd ~ ~ ~" # gain 0.8 # room 0.45 # size 0.5, s "hh hh hh hh hh hh hh hh" # gain 0.5 # cutoff 5000]
 
 d4 $ slow 4 $ s "pad:3 pad:1 pad:5 pad:2" # cutoff (range 500 1000 $ slow 16 sine) # room 0.9 # size 0.9 # gain 0.38
 
 -- =============================================
--- SECTION 4: BUILDING (2:00 - 3:30)
--- Guitar texture enters. Gradually brighter.
+-- SECTION 4: GUITAR ENTERS (3:00 - 4:00)
+-- Power chords: C5 D5 F5 Eb5. Distorted, delayed.
 -- =============================================
 
-d1 $ note "c2 db2 [c2 db2] c2 db2 c2 db2 [c2 db2]" # s "jvbass" # sustain 0.18 # cutoff (range 200 500 $ slow 4 sine) # resonance 0.15 # room 0.2 # size 0.3 # gain 1.1 # lpf 400
+d1 $ note "bb1 bb1 bb1 bb1 bb1 bb1 bb1 c2" # s "jvbass" # sustain 0.18 # cutoff (range 200 450 $ slow 4 sine) # resonance 0.15 # room 0.2 # size 0.3 # gain 1.1 # lpf 400
 
 d2 $ stack [s "bd ~ ~ ~ [~ bd] ~ ~ ~" # gain 1.1 # cutoff 3000, s "~ ~ ~ ~ sd ~ ~ ~" # gain 0.85 # room 0.35 # size 0.4, s "hh hh hh hh hh hh hh hh" # gain 0.5 # cutoff 6000]
 
-d3 $ slow 2 $ note "c4 db4 c4 eb4" # s "gtr:1" # cutoff 1800 # room 0.8 # size 0.8 # delay 0.6 # delaytime (1/4) # delayfeedback 0.4 # gain 0.3
+-- Guitar: power chord progression C5 D5 F5 Eb5 (one chord per bar)
+d3 $ slow 4 $ note "c4 d4 f4 eb4" # s "gtr:1" # sustain 2 # cutoff 1800 # room 0.8 # size 0.8 # delay 0.6 # delaytime (1/4) # delayfeedback 0.4 # gain 0.3
 
 d4 $ slow 4 $ s "pad:3 pad:1 pad:5 pad:2" # cutoff (range 600 1200 $ slow 8 sine) # room 0.9 # size 0.9 # delay 0.3 # delaytime (1/3) # delayfeedback 0.3 # gain 0.35
 
 -- =============================================
--- SECTION 5: PEAK INTENSITY (3:30 - 4:30)
--- Loudest section but still controlled.
--- Guitar more present. Bass stays deep.
+-- SECTION 5: PEAK (4:00 - 5:00)
+-- Guitar louder. Everything at max controlled intensity.
 -- =============================================
 
-d1 $ note "c2 db2 [c2 db2] c2 db2 c2 db2 [c2 db2]" # s "jvbass" # sustain 0.15 # cutoff (range 200 550 $ slow 4 sine) # resonance 0.15 # room 0.2 # size 0.3 # gain 1.15 # lpf 450
+d1 $ note "bb1 bb1 bb1 bb1 bb1 bb1 bb1 c2" # s "jvbass" # sustain 0.15 # cutoff (range 200 500 $ slow 4 sine) # resonance 0.15 # room 0.2 # size 0.3 # gain 1.15 # lpf 450
 
 d2 $ stack [s "bd ~ ~ ~ [~ bd] ~ ~ ~" # gain 1.15 # cutoff 3000, s "~ ~ ~ ~ sd ~ ~ ~" # gain 0.9 # room 0.3 # size 0.35, s "hh hh hh hh hh hh hh hh" # gain 0.55 # cutoff 7000]
 
-d3 $ note "c4 db4 c4 eb4" # s "gtr:1" # cutoff 2500 # room 0.75 # size 0.8 # delay 0.5 # delaytime (1/4) # delayfeedback 0.35 # gain 0.4
-
-d5 $ s "~ ~ [~ 808oh] ~" # gain 0.35 # room 0.3 # cutoff 3500
+-- Guitar: louder, brighter
+d3 $ slow 4 $ note "c4 d4 f4 eb4" # s "gtr:1" # sustain 2 # cutoff 2500 # room 0.75 # size 0.8 # delay 0.5 # delaytime (1/4) # delayfeedback 0.35 # gain 0.4
 
 d4 $ slow 2 $ s "pad:3 pad:1 pad:5 pad:2" # cutoff (range 700 1500 $ slow 8 sine) # room 0.9 # size 0.9 # delay 0.3 # delaytime (1/3) # delayfeedback 0.3 # gain 0.38
 
 -- =============================================
--- SECTION 6: BREAKDOWN + FADE (4:30 - 5:24)
--- Energy drops. Bass exposed. Fading out.
+-- SECTION 6: BREAKDOWN + FADE (5:00 - end)
+-- Strip back. Bass exposed. Fade out.
 -- =============================================
 
-d1 $ slow 2 $ note "c2 ~ ~ [~ db2]" # s "jvbass" # sustain 1 # cutoff (range 150 350 $ slow 8 sine) # resonance 0.15 # room 0.5 # size 0.6 # gain 0.9 # lpf 250
+d1 $ slow 2 $ note "bb1 ~ ~ [~ c2]" # s "jvbass" # sustain 1 # cutoff (range 150 350 $ slow 8 sine) # resonance 0.15 # room 0.5 # size 0.6 # gain 0.9 # lpf 250
 
-d2 $ s "~ ~ ~ bd ~ ~ ~ ~" # gain 0.9 # cutoff 2000
+d2 $ stack [s "bd ~ ~ ~ ~ ~ ~ ~" # gain 0.9 # cutoff 2000, s "hh ~ hh ~ hh ~ hh ~" # gain 0.35 # cutoff 4000]
 
 d3 $ silence
-
-d5 $ silence
 
 d4 $ slow 8 $ s "pad:3" # cutoff (range 300 800 $ slow 16 sine) # room 0.95 # size 0.95 # gain (range 0.25 0.4 $ slow 8 sine)
 
