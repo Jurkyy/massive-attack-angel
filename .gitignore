@@ -1,0 +1,27 @@
+# SuperCollider
+*.sc~
+*.scd~
+synthdefs/
+
+# Tidal
+*.tidal~
+.ghci_history
+
+# Audio renders
+*.wav
+*.aif
+*.aiff
+*.mp3
+*.flac
+*.ogg
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
